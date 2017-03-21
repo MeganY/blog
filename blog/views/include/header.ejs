@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#menus">
+            <span class="sr-only">我的博客</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="/" class="navbar-brand">我的博客</a>
+    </div>
+
+    <!--右侧导航栏-->
+    <div class="collapse navbar-collapse" id="menus">
+        <ul class="nav navbar-nav">
+            <% if(!user){%>
+            <li class="active"><a href="/users/reg">注册</a></li>
+            <li><a href="/users/login">登录</a></li>
+            <% }else{ %>
+            <li><a href="/articles/add">发表文章</a></li>
+            <li>
+                <a href="/users/lagout">
+                    (<%=user.username %>)
+                    注销</a></li>
+            <% }%>
+        </ul>
+        <form  class="navbar-form navbar-right" role="search" method="post" action="/articles/list/1/2">
+            <div class="form-group">
+                <label for="keyword" class="sr-only">关键字</label>
+                <input type="search" name="keyword" id="keyword" placeholder="Search" class="form-control" value="<%=keyword%>"/>
+            </div>
+            <button type="submit" class="btn  btn-default" value="search" name="searchBtn">搜索</button>
+        </form>
+    </div>
+</nav>
+<div class="container text-center" >
+    <% if(success){ %>
+            <div class="alert alert-success" role="alert"><%= success %></div>
+    <%
+    }%>
+    <% if(error){
+    %>
+    <div class="alert alert-danger" role="alert"><%=error%></div>
+    <%
+    }%>
+</div>

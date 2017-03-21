@@ -1,0 +1,21 @@
+{
+  "name": "blog",
+  "description": "博客",
+  "main": "",
+  "authors": [
+    "Megan <865233841@qq.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/MeganY/blog",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
